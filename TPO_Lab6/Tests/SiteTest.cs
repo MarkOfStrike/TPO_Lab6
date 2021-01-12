@@ -16,6 +16,8 @@ namespace TPO_Lab6.Tests
             _page = new HomePage.HomePage(initializer);
         }
 
+        
+
         [Fact]
         public void TestNavBar()
         {
@@ -47,7 +49,7 @@ namespace TPO_Lab6.Tests
 
             _page.ClickReklama();
             Assert.Equal("Реклама на нашем сайте.", _page.Title);
-
+            
         }
 
         [Fact]
@@ -79,6 +81,7 @@ namespace TPO_Lab6.Tests
             _page.ClickPlugin();
             Assert.Equal("Плагин для Sape.ru, других бирж и просто seo анализа - xtool_checker", _page.Title);
 
+            _initializer.Driver.Close();
         }
 
         [Fact]
@@ -106,6 +109,7 @@ namespace TPO_Lab6.Tests
 
 
         }
+
 
     }
 }
