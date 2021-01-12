@@ -21,6 +21,7 @@ namespace TPO_Lab6.Tests
         [Fact]
         public void TestNavBar()
         {
+            _initializer.EnsureServerRestart();
             _page.Navigate();
 
             _page.ClickTrast();
@@ -49,12 +50,17 @@ namespace TPO_Lab6.Tests
 
             _page.ClickReklama();
             Assert.Equal("Реклама на нашем сайте.", _page.Title);
-            
+
+            _initializer.Driver.Close();
+            _initializer.Driver.Dispose();
+
         }
 
         [Fact]
         public void TestLeftMenu()
         {
+            _initializer.EnsureServerRestart();
+
             _page.Navigate();
 
             _page.ClickAudit();
@@ -82,11 +88,14 @@ namespace TPO_Lab6.Tests
             Assert.Equal("Плагин для Sape.ru, других бирж и просто seo анализа - xtool_checker", _page.Title);
 
             _initializer.Driver.Close();
+            _initializer.Driver.Dispose();
         }
 
         [Fact]
         public void TestAuth()
         {
+            _initializer.EnsureServerRestart();
+
             _page.Navigate();
 
             Assert.True(_page.IsEnableEmail);
@@ -107,6 +116,8 @@ namespace TPO_Lab6.Tests
 
             _page.SubmitBtnClick();
 
+            _initializer.Driver.Close();
+            _initializer.Driver.Dispose();
 
         }
 
